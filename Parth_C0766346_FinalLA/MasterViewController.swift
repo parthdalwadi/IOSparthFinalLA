@@ -20,20 +20,19 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        Product.allProducts = [ Product(pId: 1, pName: "Product1", pDescription: "abcd", price: 1.2),
+        Product(pId: 2, pName: "Product2", pDescription: "efgh", price: 2.3),
+        Product(pId: 3, pName: "Product3", pDescription: "ijkl", price: 3.4),
+        Product(pId: 4, pName: "Product4", pDescription: "mnop", price: 4.5),
+        Product(pId: 5, pName: "Product5", pDescription: "qrst", price: 5.6),
+        Product(pId: 6, pName: "Product6", pDescription: "abcd", price: 6.7)]
         let appD = UIApplication.shared.delegate as! AppDelegate
         context = appD.persistentContainer.viewContext
         
         let data = loadDatafromDatabase()
         
         if data.isEmpty{
-            
-            Product.allProducts = [ Product(pId: 1, pName: "Product1", pDescription: "abcd", price: 1.2),
-            Product(pId: 2, pName: "Product2", pDescription: "efgh", price: 2.3),
-            Product(pId: 3, pName: "Product3", pDescription: "ijkl", price: 3.4),
-            Product(pId: 4, pName: "Product4", pDescription: "mnop", price: 4.5),
-            Product(pId: 5, pName: "Product5", pDescription: "qrst", price: 5.6),
-            Product(pId: 6, pName: "Product6", pDescription: "abcd", price: 6.7)]
-            
             
             saveDataIntoCore()
             
@@ -58,7 +57,7 @@ class MasterViewController: UITableViewController {
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = editButtonItem
 
-        //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        //let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject))
         //navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -71,12 +70,7 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-//    @objc
-//    func insertNewObject(_ sender: Any) {
-//        objects.insert(NSDate(), at: 0)
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        tableView.insertRows(at: [indexPath], with: .automatic)
-//    }
+   
 
     // MARK: - Segues
 
