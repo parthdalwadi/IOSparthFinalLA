@@ -21,12 +21,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        Product.allProducts = [ Product(pId: 1, pName: "Product1", pDescription: "abcd", price: 1.2),
-        Product(pId: 2, pName: "Product2", pDescription: "efgh", price: 2.3),
-        Product(pId: 3, pName: "Product3", pDescription: "ijkl", price: 3.4),
-        Product(pId: 4, pName: "Product4", pDescription: "mnop", price: 4.5),
-        Product(pId: 5, pName: "Product5", pDescription: "qrst", price: 5.6),
-        Product(pId: 6, pName: "Product6", pDescription: "abcd", price: 6.7)]
+        
         let appD = UIApplication.shared.delegate as! AppDelegate
         context = appD.persistentContainer.viewContext
         
@@ -48,11 +43,6 @@ class MasterViewController: UITableViewController {
              
             
         }
-        
-        
-       
-        
-        
         
         // Do any additional setup after loading the view.
         navigationItem.leftBarButtonItem = editButtonItem
